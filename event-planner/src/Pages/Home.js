@@ -14,6 +14,7 @@ import {
   height: 225,
 };
 const Home =()  =>  {
+  return(
  <View style={{backgroundColor: 'white'}}>
       <Image source={logo} />
       <ScrollView>
@@ -58,6 +59,7 @@ const Home =()  =>  {
         </TouchableOpacity>
       </ScrollView>
     </View>
-    };
+  );
+ };
 
 export default Home;
