@@ -13,7 +13,7 @@ import {
   width: 400,
   height: 225,
 };
-const Home =()  =>  {
+const Home =({navigation})  =>  {
   return(
  <View style={{backgroundColor: 'white'}}>
       <Image source={logo} />
@@ -49,7 +49,7 @@ const Home =()  =>  {
             <Text style={{textAlign: 'center'}}>Book this Room</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style = {{backgroundColor: 'orange', margin: 10}}onPress={() => navigation.navigate('PaymentScreen')}>
+        <TouchableOpacity style = {{backgroundColor: 'orange', margin: 10}}onPress={() => navigation.navigate('informationSpecial')}>
           <Text style={{textAlign: 'center', fontSize: 15}}>
             Request a special booking?
           </Text>
