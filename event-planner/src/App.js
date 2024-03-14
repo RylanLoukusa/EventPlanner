@@ -14,6 +14,11 @@ import MealDeal from "./Pages/MealDeal";
 import Payment from "./Pages/Payment";
 import Questionaire from "./Pages/Questionaire";
 import Summary from "./Pages/Summary";
+import AuditoriumQuestions from "./Pages/AuditoriumQuestions";
+import FieldTripQuestions from "./Pages/FieldTripQuestions";
+import ThirdFloorQuestions from "./Pages/ThirdFloorQuestions";
+import AdminVerifyScreen from "./Pages/AdminVerify"
+import AdminViewScreen from "./Pages/AdminView"
  
 function App() {
     return (
