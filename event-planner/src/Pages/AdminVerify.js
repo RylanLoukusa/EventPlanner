@@ -5,7 +5,9 @@ import {
   Image,
   TouchableOpacity,
   View,
+  StyleSheet
 } from 'react-native';
+
 
 //image logo
   const logo = {
@@ -16,32 +18,91 @@ import {
 
 export default function AdminVerifyScreen({navigation}){
     return(
-      <View style={{backgroundColor: 'white', alignItems: 'center'}}>
+      <View style={Styles.Setup}>
 
       <Image source={logo} />
       
-  <View style={{borderWidth: 4, paddingTop: 60, margin: 10}}>
+  <View style={Styles.SelectionView}>
 
-      <Text style={{padding: 20, textAlign: 'center', fontSize: 20}}> In order to continue please enter your credentials {'\n'}</Text>
+      <Text style={Styles.Header}> In order to continue please enter your credentials {'\n'}</Text>
 
-        <Text style={{marginLeft: 30, color: 'orange'}}>First Name</Text
+        <Text style={Styles.InputPrompt}>First Name</Text
         >
-        <TextInput style={{margin: 30, borderWidth: 1, fontSize: 15}} placeholder="Last Name" required="required"/>
+        <TextInput style={Styles.Input} placeholder="Last Name" required="required"/>
 
-        <Text style={{marginLeft: 30, color: 'orange'}}>Last Name</Text>
+        <Text style={Styles.InputPrompt}>Last Name</Text>
 
-        <TextInput style={{margin: 30, borderWidth: 1, fontSize: 15}} placeholder="First Name" required="required"/>
+        <TextInput style={Styles.Input} placeholder="First Name" required="required"/>
 
-        <Text style={{marginLeft: 30, color: 'orange'}}>Passcode</Text>
+        <Text style={Styles.InputPrompt}>Passcode</Text>
 
-        <TextInput style={{margin: 30, borderWidth: 1, fontSize: 15}} placeholder="Passcode" required="required"/>
+        <TextInput style={Styles.Input} placeholder="Passcode" required="required"/>
 
-        <TouchableOpacity style = {{backgroundColor: 'orange', marginLeft: 150, marginRight: 150,}} onPress={() => navigation.navigate('AdminViewScreen')}>
+        <TouchableOpacity style = {Styles.Buttons} onPress={() => navigation.navigate('AdminViewScreen')}>
 
-          <Text style={{textAlign: 'center'}}>Submit</Text>
+          <Text style={Styles.ButtonText}>Submit</Text>
 
         </TouchableOpacity>
   </View>
       </View>
     );
 }
+const Styles = StyleSheet.create({
+
+Setup: {
+  backgroundColor: 'white',
+  alignItems: 'center',
+},
+
+Buttons: {
+  backgroundColor: 'orange',
+  margin: 10,
+},
+
+ButtonText: {
+  textAlign: 'center',
+},
+
+SelectionView: {
+  borderWidth: 4,
+  padding: 5,
+  paddingBottom: 10,
+  margin: 10,
+},
+
+HeaderText: {
+  fontWeight: 'bold',
+  textSize: 25,
+},
+
+TitleText: {
+  fontSize: 40,
+  paddingBottom: 50,
+  color: 'grey',
+  textAlign: 'center',
+},
+
+Input:{
+  padding:5,
+  margin:20, 
+  borderWidth:1,
+},
+
+Header:{
+  padding: 20, 
+  textAlign: 'center', 
+  fontSize: 20,
+},
+
+InputPrompt:{
+  color: 'orange',
+  fontSize: 15,
+  margin: 30,
+}
+});
+
+
+
+
+
+
