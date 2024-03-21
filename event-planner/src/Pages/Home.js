@@ -5,7 +5,9 @@ import {
   Text,
   TouchableOpacity,
   View,
+  StyleSheet
 } from 'react-native';
+
 
 //image logo
   const logo = {
@@ -13,53 +15,111 @@ import {
   width: 400,
   height: 225,
 };
-const Home =({navigation})  =>  {
-  return(
- <View style={{backgroundColor: 'white'}}>
+
+//starting screen
+export default function StartScreen({navigation}) {
+    return(
+      <View style={Styles.Setup}>
       <Image source={logo} />
       <ScrollView>
-        <Text style={{fontSize: 40, paddingBottom: 50, color: 'grey', textAlign: 'center'}}>
+        <Text style={Styles.TitleText}>
           {' '}
           Book your Party
         </Text>
         <View
-          style={{borderWidth: 4, padding: 5, paddingBottom: 10, margin: 10}}>
-          <Text style={{fontWeight: 'bold', fontSize: 25}}>Party Room</Text>
+          style={Styles.SelectionView}>
+          <Text style={Styles.HeaderText}>Party Room</Text>
           <Text>
             {' '}
             5 minutes- packages start at $210{'\n'} St. Michael Cinema {'\n'}{' '}
             1st Floor Party Room {'\n'} Capacity: 15
           </Text>
           <TouchableOpacity
-            style={{backgroundColor: 'orange', margin: 10}}
+            style={Styles.Buttons}
             onPress={() => navigation.navigate('PartyRoom')}>
-            <Text style={{textAlign: 'center'}}>Book this Room</Text>
+            <Text style={Styles.ButtonText}>Book this Room</Text>
           </TouchableOpacity>
         </View>
-        <View style={{paddingTop: 10, padding: 5, borderWidth: 4, margin: 10}}>
-          <Text style={{fontWeight: 'bold', fontSize: 25}}>Dining Room</Text>
+        <View style={Styles.SelectionView}>
+          <Text style={Styles.HeaderText}>Dining Room</Text>
           <Text>
             {' '}
             5 minutes- packages start at $210{'\n'} St. Michael Cinema {'\n'}{' '}
             2nd Floor Dining Room {'\n'} Capacity: 25
           </Text>
           <TouchableOpacity
-            style={{backgroundColor: 'orange', margin: 10}}
+            style={Styles.Buttons}
             onPress={() => navigation.navigate('DiningRoom')}>
-            <Text style={{textAlign: 'center'}}>Book this Room</Text>
+            <Text style={Styles.ButtonText}>Book this Room</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity style = {{backgroundColor: 'orange', margin: 10}}onPress={() => navigation.navigate('informationSpecial')}>
-          <Text style={{textAlign: 'center', fontSize: 15}}>
+        <TouchableOpacity style = {Styles.Buttons}onPress={() => navigation.navigate('')}>
+          <Text style={Styles.SpecialButton}>
             Request a special booking?
           </Text>
         </TouchableOpacity>
         <TouchableOpacity>
-        <Text> Admin: manage bookings </Text>
+        <Text style={Styles.ButtonText} onPress={() => navigation.navigate('AdminVerifyScreen')}> Admin: manage bookings </Text>
         </TouchableOpacity>
       </ScrollView>
     </View>
-  );
- };
+    );
+}
 
-export default Home;
+const Styles = StyleSheet.create({
+
+Setup: {
+  backgroundColor: 'white',
+  alignItems: 'center',
+},
+
+Buttons: {
+  backgroundColor: 'orange',
+  margin: 10,
+},
+
+ButtonText: {
+  textAlign: 'center',
+},
+SpecialButton: {
+  textAlign: 'center', 
+  fontSize: 15
+},
+
+SelectionView: {
+  borderWidth: 4,
+  padding: 5,
+  paddingBottom: 10,
+  margin: 10,
+},
+
+HeaderText: {
+  fontWeight: 'bold',
+  fontSize: 25,
+},
+
+TitleText: {
+  fontSize: 40,
+  paddingBottom: 50,
+  color: 'grey',
+  textAlign: 'center',
+},
+
+Input:{
+  padding:5,
+  margin:20, 
+  borderWidth:1,
+},
+
+Header:{
+  padding: 20, 
+  textAlign: 'center', 
+  fontSize: 20,
+},
+
+InputPrompt:{
+  color: 'orange',
+  fontSize: 15,
+  margin: 30,
+}
+});
