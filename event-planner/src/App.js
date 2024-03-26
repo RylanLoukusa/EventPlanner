@@ -29,7 +29,7 @@ function App() {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="StartScreen"
+          initialRouteName="Home"
           screenOptions={{
             headerShown: false,
           }}>
