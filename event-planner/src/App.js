@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
 import {
     BrowserRouter as Router,
     Routes,
@@ -19,24 +18,40 @@ import FieldTripQuestions from "./Pages/FieldTripQuestions";
 import ThirdFloorQuestions from "./Pages/ThirdFloorQuestions";
 import AdminVerifyScreen from "./Pages/AdminVerify"
 import AdminViewScreen from "./Pages/AdminView"
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+
+
+ const Stack = createStackNavigator();
  
 function App() {
     return (
-        <Router>
-            <Navbar />
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/date" element={<Date />} />
-                <Route path="/information" element={<Information />} />
-                <Route path="/information-special" element={<InformationSpecial />} />
-                <Route path="/meal-deal" element={<MealDeal />} />
-                <Route path="/payment" element={<Payment />} />
-                <Route path="/questionaire" element={<Questionaire />} />
-                <Route path="/summary" element={<Summary />} />
-            </Routes>
-        </Router>
-    );
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="StartScreen"
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="AdminVerify" component={AdminVerify} />
+          <Stack.Screen name="AdminView" component={AdminView} />
+          <Stack.Screen name="Payment" component={Payment} />
+          <Stack.Screen name="AuditoriumQuestions" component={AuditoriumQuestions} />
+          <Stack.Screen name="ThirdFloorQuestions" component={ThirdFloorQuestions} />
+          <Stack.Screen name="FieldTripQuestions" component={FieldTripQuestions} />
+          <Stack.Screen name="Summary" component={Summary}/>
+          <Stack.Screen name="Questionaire" component={Questionaire}/>
+          <Stack.Screen name="Contact" component={Contact}/>
+          <Stack.Screen name="Date" component={Date}/>
+          <Stack.Screen name="MealDeal" component={MealDeal}/>
+          <Stack.Screen name="Information" component={Information}/>
+          <Stack.Screen name="InformationSpecial" component={InformationSpecial}/>
+    
+        </Stack.Navigator>
+      </NavigationContainer>
+
+  );
 }
  
 export default App;
